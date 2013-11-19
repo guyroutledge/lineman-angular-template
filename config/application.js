@@ -21,7 +21,7 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend('application
 
   // we don't use the lineman default concat, handlebars, and jst tasks by default
   removeTasks: {
-    common: ["concat", "handlebars", "jst"]
+    common: ["less", "concat", "handlebars", "jst"]
   },
 
   // task override configuration
@@ -39,9 +39,9 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend('application
   ngtemplates: {
     app: { // "app" matches the name of the angular module defined in app.js
       options: {
-        base: "app/templates"
+        base: "app"
       },
-      src: "app/templates/**/*.html",
+      src: "app/**/*.html",
       // puts angular templates in a different spot than lineman looks for other templates in order not to conflict with the watch process
       dest: "generated/angular/template-cache.js"
     }
@@ -54,6 +54,8 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend('application
       dest: "<%= files.js.concatenated %>"
     }
   },
+
+  enableSass: true,
 
   // generates a sourcemap for js, specs, and css with inlined sources
   // grunt-angular-templates expects that a module already be defined to inject into
@@ -81,7 +83,7 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend('application
   // watch target concat with concat_sourcemap
   watch: {
     ngtemplates: {
-      files: "app/templates/**/*.html",
+      files: "app/**/*.html",
       tasks: ["ngtemplates", "concat_sourcemap:js"]
     },
     js: {

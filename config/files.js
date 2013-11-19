@@ -16,6 +16,16 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend('files', {
     dest: "generated/angular/template-cache.js"
   },
 
+  coffee: {
+    app: [
+      "!app/js/**/_spec/*.coffee",
+      "!app/js/**/_spec-e2e/*.coffee"
+    ],
+    spec: [
+      "app/js/**/_spec/*.coffee"
+    ]
+  },
+
   js: {
     vendor: [
       "vendor/js/angular.js",
@@ -23,7 +33,12 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend('files', {
     ],
     app: [
       "app/js/app.js",
-      "app/js/**/*.js"
+      "app/js/**/*.js",
+      "!app/js/**/_spec/*.js", "!app/js/**/_spec/*.coffee",
+      "!app/js/**/_spec-e2e/*.js", "!app/js/**/_spec-e2e/*.coffee"
+    ],
+    spec: [
+      "app/js/**/_spec/*.js"
     ]
   },
 

@@ -1,6 +1,8 @@
 # A Lineman JS Template using Angular
 
-[![Build Status](https://travis-ci.org/testdouble/lineman-angular-template.png?branch=master)](https://travis-ci.org/testdouble/lineman-angular-template)
+Forked from [https://github.com/testdouble/lineman-angular-template](https://github.com/testdouble/lineman-angular-template)
+This Angular template uses an alternative directory structure were files
+are grouped by *feature* rather than by *type*
 
 This is a project template for Angular JS applications using [Lineman](http://www.linemanjs.com).
 
